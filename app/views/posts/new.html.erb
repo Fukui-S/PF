@@ -1,0 +1,38 @@
+<div>
+  <div>
+    <div>
+      <h2>投稿フォーム</h2>
+    </div>
+    <div>
+      <div>
+        <%= form_with model:@post, local:true do |f| %>
+        <table>
+          <tr>
+            <td>タイトル</td>
+            <td><%= f.text_field :title %></td>
+          </tr>
+          <tr>
+            <td>説明</td>
+            <td><%= f.text_field :description %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <td>アクセス方法</td>
+            <td><%= f.text_field :address_way %></td>
+          </tr>
+          <tr>
+            <td>画像</td>
+            <td><%= f.attachment_field :image %></td>
+          </tr>
+          <tr>
+            <td><%= f.submit '投稿' %></td>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
