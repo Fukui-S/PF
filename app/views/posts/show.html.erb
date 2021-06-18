@@ -7,6 +7,19 @@ post_show
       <p><%= @post.description %></p>
       <p><%= @post.address %></p>
       <p><%= @post.address_way %></p>
+      <% if @post.favorited_by?(current_user) %>
+      <p>
+        <%= link_to post_favorites_path(@post),method: :delete do %>
+        ♥<%= @post.favorites.count %> いいね
+      <% end %>
+      </p>
+      <% else %>
+      <p>
+      <%= link_to post_favorites_path(@post), method: :post do %>
+        ♡<%= @post.favorites.count %> いいね
+      <% end %>
+      </p>
+      <% end %>
 
     </div>
     <div class="new_comment">
@@ -17,14 +30,19 @@ post_show
     </div>
     <p>コメント欄</p>
     <p>コメント件数:<%= @post.post_comments.count %></p>
-    <%= @post.post_comments.each do |post_comment| %>
+    <% @post.post_comments.each do |post_comment| %>
     <p><%#= image_tag('sample-author1.jpg') %></p>
     <%= post_comment.user.name %>
     <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+    <% if post_comment.user == current_user %>
+    <div class="comment_delete">
+      <%= link_to "コメントを削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+    </div>
+    <% end %>
     <% end %>
     <div>
       <% if @post.user == current_user %>
-      <%= link_to "削除", post_path(@post), method: :delete %>
+      <%= link_to "投稿を削除", post_path(@post), method: :delete %>
       <% end %>
       </div>
   </div>
