@@ -1,1 +1,19 @@
-user_edit
+<h2>プロフィール編集</h2>
+<%= form_with model:@user, local:true do |f| %>
+<div>
+  <%= f.label :'ユーザー名' %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :'メールアドレス' %>
+  <%= f.text_field :email %>
+</div>
+<div>
+  
+  <%#= f.label :'イメージ画像' %>
+  <%#= f.attachment_field :image %>
+</div>
+<div>
+  <%= f.submit "変更を保存" %>
+</div>
+<% end %>
