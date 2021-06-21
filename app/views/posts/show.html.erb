@@ -7,27 +7,31 @@ post_show
       <p><%= @post.description %></p>
       <p><%= @post.address %></p>
       <p><%= @post.address_way %></p>
-      <% if @post.favorited_by?(current_user) %>
-      <p>
-        <%= link_to post_favorites_path(@post),method: :delete do %>
-        ♥<%= @post.favorites.count %> いいね
-      <% end %>
-      </p>
-      <% else %>
-      <p>
-      <%= link_to post_favorites_path(@post), method: :post do %>
-        ♡<%= @post.favorites.count %> いいね
-      <% end %>
-      </p>
+      <% if user_signed_in? %>
+        <% if @post.favorited_by?(current_user) %>
+          <p>
+          <%= link_to post_favorites_path(@post),method: :delete do %>
+          ♥<%= @post.favorites.count %> いいね
+          <% end %>
+          </p>
+        <% else %>
+        <p>
+        <%= link_to post_favorites_path(@post), method: :post do %>
+          ♡<%= @post.favorites.count %> いいね
+        <% end %>
+        </p>
+        <% end %>
       <% end %>
 
     </div>
-    <div class="new_comment">
-      <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-      <%= f.text_area :comment, row:'5' ,placheholder: "コメントをここに" %>
-      <%= f.submit "送信する" %>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="new_comment">
+        <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
+        <%= f.text_area :comment, row:'5' ,placheholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+    <% end %>
     <p>コメント欄</p>
     <p>コメント件数:<%= @post.post_comments.count %></p>
     <% @post.post_comments.each do |post_comment| %>

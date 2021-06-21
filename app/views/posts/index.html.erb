@@ -7,7 +7,9 @@ post/index
       <%= attachment_image_tag post, :image %>
       <% end %>
       <p><%#= image_tag('sample-author1.jpg') %></p>
-      <p>タイトル<%= post.title %></p>
+      <p>タイトル<%= link_to post_path(post.id) do %>
+      <%= post.title %></p>
+      <% end %>
       <p>ユーザーネーム<%=post.user.name %></p>
       <p>コメント数<%= post.post_comments.count %></p>
     </div>

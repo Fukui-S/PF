@@ -15,8 +15,8 @@
   <% end %>
   <p>投稿ユーザー画像：<%#= image_tag('sample-author1.jpg') %></p>
   <p>ユーザー名:<%= post.user.name %></p>
-  <p><%= link_to post_path(post)  do %>
-  タイトル<%= post.title %></p>
+  <p>タイトル:<%= link_to post_path(post)  do %>
+  <%= post.title %></p>
   <% end %>
 <% end %>
 </div>
