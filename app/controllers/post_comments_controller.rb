@@ -9,8 +9,9 @@ class PostCommentsController < ApplicationController
   end
 
   def destroy
-    #PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
-    # redirect_to post_path(post)
+    post = Post.find(params[:post_id])
+    PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
+    redirect_to post_path(post)
   end
 
   private
