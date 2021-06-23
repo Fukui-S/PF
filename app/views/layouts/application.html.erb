@@ -22,9 +22,9 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-              <ul>
+              <li>
                 <i class="fas fa-user"></i><%= link_to "マイページ", user_path(current_user) %>
-              </ul>
+              </li>
               <ul>
                 <i class="fas fa-store"></i><%= link_to "投稿一覧", posts_path %>
               </ul>

@@ -1,22 +1,39 @@
-<div class="profile-container">
-  <h3 class="profile">
-    <%= @user.name %> <br>
-    <%= @user.email %>
-  </h3>
-  <%#= image_tag('sample-author1.jpg') %>
-  <% if @user.id == current_user.id %>
-   <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-   <% end %>
-</div>
+<% if @user.id == current_user.id %>
+<main class="padding-top: 58px;">
+  <div class="container">
+    <div class="row">
+      <div class="offset-1 col-10">
+        <div class="profile">
+          <h3>
+            <p>ユーザー名：<%= @user.name %></p>
+            <p>メールアドレス：<%= @user.email %></p>
+          </h3>
+          <div>
+            <%= link_to "プロフィール編集", edit_user_path(@user),class: 'btn btn-success' %>
+          </div>
+          <div class="users-post">
+            <table class="table">
 
-<% @post.each do |post| %>
-<div>
-  <%= link_to post_path(post.id) do %>
-  <% end %>
-  <p>投稿ユーザー画像：<%#= image_tag('sample-author1.jpg') %></p>
-  <p>ユーザー名:<%= post.user.name %></p>
-  <p>タイトル:<%= link_to post_path(post)  do %>
-  <%= post.title %></p>
-  <% end %>
+            <h4><%= @user.name %>の投稿一覧</h4>
+             <h5>
+             <tr>
+                タイトル名<br>
+              </tr>
+             </h5>
+            <% @post.each do |post| %>
+            <p class="post-title">
+              <%= link_to post_path(post)  do %>
+              <%= post.title %>
+              <% end %>
+            </p>
+            </table>
+
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 <% end %>
-</div>
