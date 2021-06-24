@@ -1,1 +1,36 @@
-post_edit
+<main style="background-color: #f9f7f5;">
+  <div class="padding-top: 58px;">
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <div class="login-signin_box">
+            <h2>投稿編集 </h2>
+              <%= form_with model:@post, local:true do |f| %>
+              <table class="table">
+                <tr>
+                  <td>タイトル</td>
+                  <td><%= f.text_field :title %></td>
+                </tr>
+                <tr>
+                  <td>説明</td>
+                  <td><%= f.text_field :description %></td>
+                </tr>
+                <tr>
+                  <td>住所</td>
+                  <td><%= f.text_field :address %></td>
+                </tr>
+                <tr>
+                  <td>アクセス方法</td>
+                  <td><%= f.text_field :address_way %></td>
+                </tr>
+                <tr>
+                  <td><%= f.submit '変更を保存する' %></td>
+                </tr>
+            </table>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

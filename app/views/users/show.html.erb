@@ -1,39 +1,36 @@
-<% if @user.id == current_user.id %>
+
 <main class="padding-top: 58px;">
   <div class="container">
     <div class="row">
       <div class="offset-1 col-10">
-        <div class="profile">
-          <h3>
-            <p>ユーザー名：<%= @user.name %></p>
-            <p>メールアドレス：<%= @user.email %></p>
-          </h3>
-          <div>
-            <%= link_to "プロフィール編集", edit_user_path(@user),class: 'btn btn-success' %>
+        <% if @user.id == current_user.id %>
+          <div class="profile">
+            <h3>
+              <p>ユーザー名：<%= @user.name %></p>
+              <p>メールアドレス：<%= @user.email %></p>
+            </h3>
+            <div>
+              <%= link_to "プロフィール編集", edit_user_path(@user),class: 'btn btn-success' %>
+            </div>
           </div>
-          <div class="users-post">
-            <table class="table">
-
-            <h4><%= @user.name %>の投稿一覧</h4>
-             <h5>
-             <tr>
+        <% end %>
+        <div class="users-post">
+          <table class="table">
+           <h4><%= @user.name %>の投稿一覧</h4>
+            <tr>
                 タイトル名<br>
-              </tr>
-             </h5>
-            <% @post.each do |post| %>
-            <p class="post-title">
+            </tr>
+           <% @post.each do |post| %>
+           <p class="post-title">
               <%= link_to post_path(post)  do %>
-              <%= post.title %>
+                <%= post.title %>
               <% end %>
             </p>
-            </table>
-
-            <% end %>
-
-          </div>
+          <% end %>
+          </table>
         </div>
       </div>
     </div>
   </div>
 </main>
-<% end %>
+
