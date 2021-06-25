@@ -1,8 +1,9 @@
 
-<main class="padding-top: 58px;">
+<main style="background-color: #f9f7f5;">
   <div class="container">
     <div class="row">
       <div class="offset-1 col-10">
+        <div class="login-signin_box">
         <% if @user.id == current_user.id %>
           <div class="profile">
             <h3>
@@ -14,20 +15,21 @@
             </div>
           </div>
         <% end %>
-        <div class="users-post">
-          <table class="table">
-           <h4><%= @user.name %>の投稿一覧</h4>
-            <tr>
-                タイトル名<br>
-            </tr>
-           <% @post.each do |post| %>
-           <p class="post-title">
-              <%= link_to post_path(post)  do %>
-                <%= post.title %>
-              <% end %>
-            </p>
-          <% end %>
-          </table>
+          <div class="users-post">
+            <table class="table">
+             <h4><%= @user.name %>の投稿一覧</h4>
+              <tr>
+                  タイトル名<br>
+              </tr>
+             <% @post.each do |post| %>
+               <p class="post-title">
+                  <%= link_to post_path(post)  do %>
+                    <%= post.title %>
+                  <% end %>
+              </p>
+             <% end %>
+            </table>
+          </div>
         </div>
       </div>
     </div>

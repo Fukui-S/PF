@@ -17,6 +17,10 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+ header{
+   background-color: #b8860b;
+ }
+
 .login-signin_box{
   margin: 4%;
   padding: 8% 15%;
@@ -52,4 +56,17 @@
 .title{
   width: 100px;
 
+}
+
+.top_box{
+  margin: 4%;
+  padding: 20% 15%;
+  border-radius: 6px;
+  background-color: #00b7ce
+}
+
+.about_box{
+  margin: 4%;
+  padding: 5% 10%;
+  background-color: #00b7ce;
 }
