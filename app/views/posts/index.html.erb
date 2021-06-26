@@ -26,7 +26,11 @@
                     </tr>
                     <tr>
                       <td class="title">ユーザー名</td>
-                      <td><%=post.user.name %></td>
+                      <td>
+                        <%= link_to user_path(post.user.id) do %>
+                          <%= post.user.name %>
+                        <% end %>
+                        </td>
                     </tr>
                     <tr>
                       <td class="title">コメント数</td>
