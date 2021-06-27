@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
-  
-  
+
+
   def new
+    if current_user.blank?
+      redirect_to posts_path
+    end
     @post = Post.new
   end
 
