@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    redirect_to post_path(params[:id]) if current_user.blank? || current_user.id != params[:id].to_i
     @post = Post.find(params[:id])
 
   end
