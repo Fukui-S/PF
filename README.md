@@ -27,8 +27,7 @@ https://docs.google.com/spreadsheets/d/1kuqzVsw5f00umO5cvM1MXHJH1s09CthvBqf3McXv
 https://docs.google.com/spreadsheets/d/1DheokdKm4r2aTjhYAVhdw5h_oTTttk-aKGCicsBTY5Q/edit?usp=sharing
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/166NCqtEDoQopM5m2cIjBhOgD1HuI3Tksgl0xg2pioSI/edit?usp=sharing
-
+https://docs.google.com/spreadsheets/d/166NCqtEDoQopM5m2cIjBhOgD1HuI3Tksgl0xg2pioSI/edit?usp=sharing<br>
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
